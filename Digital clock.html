@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        #watch {
+            text-align: center;
+            background: black;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 60px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="watch">
+        <div id="time">
+            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+    </div>
+
+    <script>
+        function updateTime() {
+            let today = new Date();
+
+            let hours = today.getHours();
+            let minutes = today.getMinutes();
+            let seconds = today.getSeconds();
+
+            // Add leading 0 to one digit values
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+
+            setTimeout(updateTime, 1000);
+        }
+
+        updateTime();
+    </script>
+
+</body>
+
+</html>
